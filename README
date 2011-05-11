@@ -1,6 +1,6 @@
 INSTALLATION
 
-1. Copy translator.js to your server
+1. Copy translator.min.js to your server
 2. Include translator.js in your <HEAD>
     <script type="text/javascript" src="/path/to/translator.js"></script>
 
