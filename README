@@ -1,0 +1,4 @@
+Some things to know:
+    1. If you are testing offline, it won't work. But you can set variable test_url to test against a public URL
+    2. You can set variable test_cc to force a country code for testing
+    3. If you have portions of your text that shouldn't be translated (such as source code) add "notranslate" as a class name

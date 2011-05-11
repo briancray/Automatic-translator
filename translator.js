@@ -1,17 +1,20 @@
 (function () {
     var loaded = false;
 
+    test_cc = test_cc || false;
+    test_url = test_url || false;
+
     var inject_jsapi = function () {
         var h = document.getElementsByTagName('head')[0];
         var s = document.createElement('script');
         s.type = 'text/javascript';
         s.onreadystatechange = function () {
             if (this.readyState === 'loaded' || this.readyState === 'complete') {
-                translate(google.loader.ClientLocation && google.loader.ClientLocation.address.country_code, 'en');
+                translate(test_cc || (google.loader.ClientLocation && google.loader.ClientLocation.address.country_code), 'en');
             }
         };
         s.onload = function () {
-            translate(google.loader.ClientLocation && google.loader.ClientLocation.address.country_code, 'en');
+            translate(test_cc || (google.loader.ClientLocation && google.loader.ClientLocation.address.country_code), 'en');
         };
         s.src = 'http://www.google.com/jsapi';
         h.appendChild(s);
@@ -70,7 +73,7 @@
             };
             cc in cc2lang && (function (uri) {
                 document.location.href = 'http://translate.google.com/translate?langpair=' + lang + '|' + cc2lang[cc] + '&u=' + uri;
-            })(document.location.href);
+            })(test_url || document.location.href);
         }
     };
 
